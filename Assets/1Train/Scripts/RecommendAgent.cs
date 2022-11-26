@@ -177,7 +177,7 @@ public class RecommendAgent : Agent
 
     public void clearDots()
     {
-        for (int i = 0; i < logLen; i++)
+        for (int i = 0; i <= logLen; i++)
         {
             ((RectTransform)graph2D.GetChild(i)).anchoredPosition = new Vector3(-100, -100, 0);
             ((RectTransform)graph1D.GetChild(i)).anchoredPosition = new Vector3(-100, -100, 0);
@@ -316,10 +316,13 @@ public class RecommendAgent : Agent
         GameManager.Gmr.flagFitness = GameManager.Gmr.flags.OrderBy(v => v.fitness).ThenBy(v => v.dist).ToArray<Flag>();
         GameManager.Gmr.recommend(GameManager.Gmr.flagFitness[0].id, 0, true);
 
-        text_rank.text = "";
+        text_rank.text = "--rank--\n";
+        int rank = 1;
         foreach (Flag flag in GameManager.Gmr.flagFitness)
         {
-            text_rank.text += flag.id + "\n";
+            text_rank.text += rank + ": ";
+            text_rank.text += "flag" + flag.id + "\n";
+            rank++;
         }
 
         AddReward((float)rew);
