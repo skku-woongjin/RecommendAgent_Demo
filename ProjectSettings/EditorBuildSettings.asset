@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/JapDa/FoodCollector 13-41-59-886/Scenes/FoodCollector.unity
+    guid: 366decb3515a24667acb8372da7ba30b
+  - enabled: 0
+    path: Assets/JapDa/VG/Visualgame/Scenes/Game.unity
+    guid: 74b9ae4e99012d14897ea86e4c008ab6
+  - enabled: 1
+    path: Assets/1Train/TrainScene.unity
+    guid: bc7654bcadba44461a7e226c9e37c868
+  m_configObjects: {}
