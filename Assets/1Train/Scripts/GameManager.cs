@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using System.Linq;
 using UnityEngine.UI;
-
+using System;
 public class GameManager : MonoBehaviour
 {
     public bool trivariate;
@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public Flag[] flagFitness;
     public GameObject flagPrefab;
     public int destQSize;
+    public TMP_Text valueUI;
 
 
     int destQfilled;
@@ -145,15 +146,15 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < candidates.childCount; i++)
         {
             candidates.GetChild(i).GetChild(2).GetChild(1).GetComponent<TMP_Text>().text = flags[i].visited + "";
-            if (trivariate)
-            {
-                candidates.GetChild(i).GetChild(2).GetChild(2).GetComponent<TMP_Text>().text = flags[i].time + "";
-            }
-            else
-            {
-                candidates.GetChild(i).GetChild(2).GetChild(1).transform.localPosition = new Vector3(-3, 3, 0);
+            // if (trivariate)
+            // {
+            //     candidates.GetChild(i).GetChild(2).GetChild(2).GetComponent<TMP_Text>().text = flags[i].time + "";
+            // }
+            
+            
+            // candidates.GetChild(i).GetChild(2).GetChild(1).transform.localPosition = new Vector3(-3, 3, 0);
                 candidates.GetChild(i).GetChild(2).GetChild(2).gameObject.SetActive(false);
-            }
+            
         }
 
     }
@@ -185,7 +186,21 @@ public class GameManager : MonoBehaviour
         randomOwnerPos(false);
         updateFlagUI();
     }
+    public void showValueUI()
+    {
+        valueUI.text = "";
+        valueUI.text += "---Duration---\n";
+        foreach (Flag flag in flags)
+        {
+            
+            valueUI.text += "Flag";
+            valueUI.text += flag.id;
+            valueUI.text += " : ";
+            valueUI.text += Math.Round(flag.time,1);
+            valueUI.text += "\n";
+        }
 
+    }
     public void resetDur()
     {
         foreach (Flag flag in flags)
