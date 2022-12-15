@@ -146,15 +146,9 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < candidates.childCount; i++)
         {
             candidates.GetChild(i).GetChild(2).GetChild(1).GetComponent<TMP_Text>().text = flags[i].visited + "";
-            // if (trivariate)
-            // {
-            //     candidates.GetChild(i).GetChild(2).GetChild(2).GetComponent<TMP_Text>().text = flags[i].time + "";
-            // }
-            
-            
-            // candidates.GetChild(i).GetChild(2).GetChild(1).transform.localPosition = new Vector3(-3, 3, 0);
-                candidates.GetChild(i).GetChild(2).GetChild(2).gameObject.SetActive(false);
-            
+
+            candidates.GetChild(i).GetChild(2).GetChild(2).gameObject.SetActive(false);
+
         }
 
     }
@@ -182,7 +176,7 @@ public class GameManager : MonoBehaviour
             flag.visited = 0;
             flag.time = 0;
         }
-
+        triMeanAgent.clearDots();
         randomOwnerPos(false);
         updateFlagUI();
     }
@@ -192,11 +186,11 @@ public class GameManager : MonoBehaviour
         valueUI.text += "---Duration---\n";
         foreach (Flag flag in flags)
         {
-            
+
             valueUI.text += "Flag";
             valueUI.text += flag.id;
             valueUI.text += " : ";
-            valueUI.text += Math.Round(flag.time,1);
+            valueUI.text += Math.Round(flag.time, 1);
             valueUI.text += "\n";
         }
 
@@ -208,6 +202,11 @@ public class GameManager : MonoBehaviour
             flag.time = 0;
         }
         updateFlagUI();
+    }
+
+    public void randOwner()
+    {
+        randomOwnerPos(true);
     }
 
     public void randomOwnerPos(bool withTrail)
@@ -248,5 +247,6 @@ public class GameManager : MonoBehaviour
     {
         trailGenerator.waitTime = 0;
     }
+
 
 }

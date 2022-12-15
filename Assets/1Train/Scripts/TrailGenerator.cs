@@ -19,6 +19,7 @@ public class TrailGenerator : MonoBehaviour
 
     public void goTo(int id, bool warp)
     {
+
         if (id < 0)
         {
             if (!warp)
@@ -26,6 +27,8 @@ public class TrailGenerator : MonoBehaviour
         }
         else
         {
+            GameManager.Gmr.updateFlagDist();
+            GameManager.Gmr.triMeanAgent.addLog3(GameManager.Gmr.flags[id].visited, GameManager.Gmr.flags[id].dist, GameManager.Gmr.flags[id].time);
             Vector3 pos = GameManager.Gmr.flags[id].pos + agent.transform.position;
             makeTrace(5);
             if (!warp)
@@ -34,6 +37,7 @@ public class TrailGenerator : MonoBehaviour
             {
                 warpTo(pos);
             }
+
         }
         GameManager.Gmr.visitFlag(id);
     }
@@ -66,10 +70,7 @@ public class TrailGenerator : MonoBehaviour
         Vector3 prevPos = transform.localPosition;
 
         List<Vector3> corners = new List<Vector3>(path.corners);
-        // for (int i = 1; i < corners.Count; i += 2)
-        // {
-        //     corners.Insert(i, makeNoisePoint(corners[i - 1], corners[i]));
-        // }
+
         foreach (Vector3 corner in corners)
         {
             traceLine(prevPos, corner);
@@ -87,10 +88,9 @@ public class TrailGenerator : MonoBehaviour
         logBtn.interactable = false;
         for (int i = 0; i < n; i++)
         {
-            GameManager.Gmr.updateFlagDist();
             int idx = Random.Range(0, GameManager.Gmr.flagCount);
+
             goTo(idx, true);
-            GameManager.Gmr.triMeanAgent.addLog3(GameManager.Gmr.flags[idx].visited, GameManager.Gmr.flags[idx].dist, GameManager.Gmr.flags[idx].time);
             yield return new WaitForSecondsRealtime(waitTime);
         }
         GameManager.Gmr.randomOwnerPos(true);
@@ -133,20 +133,6 @@ public class TrailGenerator : MonoBehaviour
 
     }
 
-    // private void FixedUpdate()
-    // {
-    //     if (!agent.warp && (lastpos == null || Vector3.SqrMagnitude(lastpos - transform.position) > traceSpacing))
-    //     {
-    //         makeTrace(1);
-    //         lastpos = transform.position;
-    //     }
-    // }
-
-
 }
 
 
-
-// if (queueFilled > 0)
-//     agent.AddReward(Vector3.SqrMagnitude(waypoints.Peek() - transform.position) / 10000);
-// agent.AddReward(agent.energy / 10);

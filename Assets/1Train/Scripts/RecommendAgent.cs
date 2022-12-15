@@ -291,17 +291,12 @@ public class RecommendAgent : Agent
         {
             time = (actionBuffers.ContinuousActions[2] + 1) / 2 * maxdist;
             ((RectTransform)graph1D.GetChild(logLen + 1)).anchoredPosition = new Vector3(time / maxdist, 0, 0) * 100;
-            // rew = GetTrivariateGuassian(userMean3.x, 5, userMean3.y, 10 * maxdist / maxcount, userMean3.z, 10 * maxdist / maxcount, count, dist, time) * 10000 / maxGaus;
             rew = Math.Sqrt(Math.Pow(userMean3.x - count, 2) + Math.Pow(userMean3.y - dist, 2) + Math.Pow(userMean3.z - time, 2)) / Math.Sqrt(Math.Pow(maxcount, 2) + Math.Pow(maxdist, 2) + Math.Pow(maxdist, 2));
             rew = 1 - rew;
-            // Debug.Log("rew: " + rew);
         }
         else
         {
             rew = GetBivariateGuassian(userMean.x, 5, userMean.y, 10 * maxdist / maxcount, count, dist, 0) / maxGaus;
-            // Debug.Log("rew: " + rew + "\nx: " + (actionBuffers.ContinuousActions[0] + 1) / 2 + " realX: " + (float)userMean.x / maxcount + "\n" +
-            // "y: " + (actionBuffers.ContinuousActions[1] + 1) / 2 + " realY: " + userMean.y / maxdist + "\n"
-            // );
         }
 
         GameManager.Gmr.updateFlagDist();
@@ -315,6 +310,7 @@ public class RecommendAgent : Agent
         }
         GameManager.Gmr.flagFitness = GameManager.Gmr.flags.OrderBy(v => v.fitness).ThenBy(v => v.dist).ToArray<Flag>();
         GameManager.Gmr.recommend(GameManager.Gmr.flagFitness[0].id, 0, true);
+        GameManager.Gmr.recommend(GameManager.Gmr.flagFitness[GameManager.Gmr.flagCount - 1].id, 1, true);
 
         text_rank.text = "--rank--\n";
         int rank = 1;

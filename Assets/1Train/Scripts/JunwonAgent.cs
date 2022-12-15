@@ -37,7 +37,7 @@ public class JunwonAgent : Agent
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
         var action = actionBuffers.DiscreteActions[0];
-        GameManager.Gmr.recommend(action, 1, true);
+        GameManager.Gmr.recommend(action, 2, true);
 
     }
 }

@@ -1048,6 +1048,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slider (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1118421052717072081, guid: e78ca153651f5492ba8e9143003d6195,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1118421052717072087, guid: e78ca153651f5492ba8e9143003d6195,
         type: 3}
       propertyPath: m_Value
@@ -7019,6 +7024,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4688212609248360}
   - component: {fileID: 4688212609248361}
+  - component: {fileID: 4688212609248362}
   m_Layer: 0
   m_Name: RecArea
   m_TagString: Untagged
@@ -7070,6 +7076,18 @@ MonoBehaviour:
   maxdist: 0
   triMeanAgent: {fileID: 0}
   trailGenerator: {fileID: 0}
+--- !u!114 &4688212609248362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819751326524660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8848deb8554454eb233504496a4a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1118421053820764931
 PrefabInstance:
   m_ObjectHideFlags: 0
