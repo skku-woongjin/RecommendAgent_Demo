@@ -177,10 +177,15 @@ public class RecommendAgent : Agent
 
     public void clearDots()
     {
-        for (int i = 0; i <= logLen; i++)
+        foreach (Transform child in graph2D)
         {
-            ((RectTransform)graph2D.GetChild(i)).anchoredPosition = new Vector3(-100, -100, 0);
-            ((RectTransform)graph1D.GetChild(i)).anchoredPosition = new Vector3(-100, -100, 0);
+            ((RectTransform)child).anchoredPosition = new Vector3(-100, -100, 0);
+
+        }
+
+        foreach (Transform child in graph1D)
+        {
+            ((RectTransform)child).anchoredPosition = new Vector3(-100, -100, 0);
         }
     }
 
@@ -305,7 +310,7 @@ public class RecommendAgent : Agent
         {
             if (trivariate)
             {
-                flag.fitness = Vector3.Distance(new Vector3(flag.visited, flag.dist, flag.time), new Vector3(count, dist, time));
+                flag.fitness = Vector3.Distance(new Vector3(flag.visited / (float)maxcount, flag.dist / maxdist, flag.time / maxdist), new Vector3(count / (float)maxcount, dist / maxdist, time / maxdist));
             }
         }
         GameManager.Gmr.flagFitness = GameManager.Gmr.flags.OrderBy(v => v.fitness).ThenBy(v => v.dist).ToArray<Flag>();
