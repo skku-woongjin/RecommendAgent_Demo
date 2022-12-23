@@ -156,6 +156,11 @@ public class GameManager : MonoBehaviour
     //NOTE 환경 초기화 
     public void resetEnv()
     {
+        //reset Flag color 
+        foreach (Transform flag in candidates)
+        {
+            flag.GetComponent<FlagColor>().yellow();
+        }
 
         //destroy trails
         foreach (Transform child in trails)

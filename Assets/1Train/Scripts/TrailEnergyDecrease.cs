@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MBaske.Sensors.Grid;
 using System;
 
 public class TrailEnergyDecrease : MonoBehaviour
 {
     public float decreaseRate;
-
+    GridBuffer m_SensorBuffer;
     public int gridsize;
 
     int normx, normy;
