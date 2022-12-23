@@ -603,7 +603,6 @@ GameObject:
   - component: {fileID: 7985525624762231843}
   - component: {fileID: 7985525624762231854}
   - component: {fileID: 7985525624762231853}
-  - component: {fileID: 1573580460}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: target
@@ -654,7 +653,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1e1c6a0a64beb49ec96272beefa468a5, type: 2}
+  - {fileID: 2100000, guid: daf629e39cc0f4521b64c93cd9604da9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -676,18 +675,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1573580460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7985525624762231842}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e038bf700cfa444fb16c6ef963be9f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7985525624880461341
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,7 +736,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3cde198ffe0ebfe44884ceb9ab0b6b4f, type: 2}
+  - {fileID: 2100000, guid: 52eab8ab5010f438fab93da85735ba1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -780,7 +767,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7985525626067312144}
-  - component: {fileID: 8974125469142397757}
   - component: {fileID: 7034499327172728933}
   m_Layer: 0
   m_Name: Dest
@@ -807,36 +793,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!114 &8974125469142397757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7985525626067312151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5af3db9475b6941598b61e4627af301d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Shape:
-    m_ScanResultsByLOD:
-    - LocalPoints:
-      - {x: 0, y: 0, z: 0}
-    m_LocalPoints:
-    - {x: 0, y: 0, z: 0}
-    m_WorldPoints: []
-    m_MergeDisconnected: 1
-    m_Flatten: 1
-    m_MaxLOD: 0
-    m_SelectedLOD: 0
-    m_ScanLOD: 0
-    m_GizmoLOD: 0
-    m_Projection: 0
-    m_PointCount: 1
-    m_DrawGrid: 0
-  yellowMat: {fileID: 2100000, guid: 52eab8ab5010f438fab93da85735ba1d, type: 2}
-  redMat: {fileID: 2100000, guid: 5195427c0d27644ed90d87ebe86d468a, type: 2}
 --- !u!65 &7034499327172728933
 BoxCollider:
   m_ObjectHideFlags: 0
