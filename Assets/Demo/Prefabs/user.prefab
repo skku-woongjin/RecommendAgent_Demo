@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 33040811493814618}
   - component: {fileID: 23024127177786336}
   m_Layer: 0
-  m_Name: AgentCube_Blue
+  m_Name: user
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

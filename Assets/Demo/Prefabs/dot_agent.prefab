@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7320658809133594951}
   - component: {fileID: 7320658809133594944}
   m_Layer: 5
-  m_Name: agent
+  m_Name: dot_agent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

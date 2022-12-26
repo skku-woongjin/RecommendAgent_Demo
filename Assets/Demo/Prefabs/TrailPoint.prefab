@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5088138262144058536}
   - component: {fileID: 2614841577573430256}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: TrailPoint
   m_TagString: trail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
