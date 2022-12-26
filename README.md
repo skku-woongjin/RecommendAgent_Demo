@@ -1,6 +1,6 @@
 # Recommend Agent Demo Project
 
-> [RecommendAgent_Train]()에서 훈련한 장소 추천 모델(Recommend Agent)을 실행시켜볼 수 있는 유니티 프로젝트입니다. <br/>
+> [RecommendAgent_Train](https://github.com/skku-woongjin/RecommendAgent_Train)에서 훈련한 장소 추천 모델(Recommend Agent)을 실행시켜볼 수 있는 유니티 프로젝트입니다. <br/>
 > 모델의 state로 넣어줄 유저 로그를 직접 생성해보고, 로그에 따른 모델의 추천을 확인할 수 있습니다. 
 
 ## 실행 화면
@@ -84,33 +84,33 @@ Unity Hub에서 프로젝트 경로 추가 후 실행
 
 <br />
 
-- [Assets/Demo](링크) : Demo Scene 을 구성하는 Asset 모음
-- [Assets/Demo/Materials](링크) : 3D 오브젝트에 씌울 Material 모음
-- [Assets/Demo/Models](링크) : 훈련된 모델 모음
+- [Assets/Demo](https://github.com/skku-woongjin/RecommendAgent_Demo/tree/main/Assets/Demo) : Demo Scene 을 구성하는 Asset 모음
+- [Assets/Demo/Materials](https://github.com/skku-woongjin/RecommendAgent_Demo/tree/main/Assets/Demo/Materials) : 3D 오브젝트에 씌울 Material 모음
+- [Assets/Demo/Models](https://github.com/skku-woongjin/RecommendAgent_Demo/tree/main/Assets/Demo/Models) : 훈련된 모델 모음
     - Junwon.onnx: 비교 모델, #visit, duration, distance 가 모두 높은 장소 추천
     - getmean_tri.onnx: [RecommendAgent_Train]()을 통해 훈련된 모델
-- [Assets/Demo/Scripts](링크) : C# 스크립트 모음
+- [Assets/Demo/Scripts](https://github.com/skku-woongjin/RecommendAgent_Demo/tree/main/Assets/Demo/Scripts) : C# 스크립트 모음
 
 ## Components
 
-- **[ClickDetector.cs]()**
+- **[ClickDetector.cs](https://github.com/skku-woongjin/RecommendAgent_Demo/blob/main/Assets/Demo/Scripts/ClickDetector.cs)**
   - 장소 클릭 시 유저가 해당 장소로 이동하도록 함
   <br />
-- **[Flag.cs]()**
+- **[Flag.cs](https://github.com/skku-woongjin/RecommendAgent_Demo/blob/main/Assets/Demo/Scripts/Flag.cs)**
   - 장소 class 정의
   <br />
-- **[GameManager.cs]()** 
+- **[GameManager.cs](https://github.com/skku-woongjin/RecommendAgent_Demo/blob/main/Assets/Demo/Scripts/GameManager.cs)** 
   - 장소 특성 저장, 장소 방문 처리
   - UI 업데이트
   - 장소 배치, 초기화 등
   <br />
-- **[JunwonAgent.cs]()** 
+- **[JunwonAgent.cs](https://github.com/skku-woongjin/RecommendAgent_Demo/blob/main/Assets/Demo/Scripts/JunwonAgent.cs)** 
   - Junwon.onnx의 input과 output 처리
   <br />
-- **[RecommendAgent.cs]()** 
+- **[RecommendAgent.cs](https://github.com/skku-woongjin/RecommendAgent_Demo/blob/main/Assets/Demo/Scripts/RecommendAgent.cs)** 
   - getmean_tri.onnx의 input과 output 처리 
   <br />
-- **[TrailEnergyDecrease.cs](),[TrailGenerator.cs](),[TrailPoint.cs]()** 
+- **[TrailEnergyDecrease.cs](https://github.com/skku-woongjin/RecommendAgent_Demo/blob/main/Assets/Demo/Scripts/TrailEnergyDecrease.cs),[TrailGenerator.cs](https://github.com/skku-woongjin/RecommendAgent_Demo/blob/main/Assets/Demo/Scripts/TrailGenerator.cs),[TrailPoint.cs](https://github.com/skku-woongjin/RecommendAgent_Demo/blob/main/Assets/Demo/Scripts/TrailPoint.cs)** 
   - 유저 이동 시 나타나는 발자취 처리 
   <br />
     
