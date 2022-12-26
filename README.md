@@ -1,142 +1,118 @@
-# Anomaly Detection Simulator - Frontend
+# Recommend Agent Demo Project
 
-> 렌즈 데이터셋, Flex 데이터셋, SMT 데이터셋에 대한 CS-Flow 모델의 예측 결과를 실시간으로 확인할 수 있는 웹 어플리케이션입니다.  
-> 데이터 예측 결과, 실제 양/불량 여부, visualization 결과를 확인할 수 있으며 미검율, 과검율, score histogram 등의 분석 결과를 제공합니다.
+> [RecommendAgent_Train]()에서 훈련한 장소 추천 모델(Recommend Agent)을 실행시켜볼 수 있는 유니티 프로젝트입니다. <br/>
+> 모델의 state로 넣어줄 유저 로그를 직접 생성해보고, 로그에 따른 모델의 추천을 확인할 수 있습니다. 
 
-## Simulator 화면 이미지
+## 실행 화면
+<img width="678" alt="실행화면" src="https://user-images.githubusercontent.com/60357053/209494711-d4910412-fd6b-4a6d-abe4-81e2f038b46c.png">
 
-<img src="https://user-images.githubusercontent.com/79344555/208611044-ac9082cc-fd9a-4ae9-adc0-d3017f7a5336.gif" />
+
+## 사용법 
+- **노란 깃발**: 장소를 표현합니다. 깃발 안에는 장소 id가, 깃발 왼쪽에는 방문 횟수가 표시됩니다. 화면 오른쪽에 장소별 방문 시간도 표시됩니다.
+  - 깃발을 클릭하면, 유저가 해당 장소에 방문했다가 랜덤한 위치로 빠져나옵니다.
+- **유저 로그**: 유저가 장소에 방문하면, 해당 장소의 특성값에 따라 그래프에 파란 점이 찍힙니다. 
+  - 아래의 "추천" 버튼을 누르면 모델이 유저 선호 최고 지점을 예측하여 그래프 상에 빨간 점으로 표시합니다.
+  - 유저 선호와 가장 유사한 장소는 파란 체크로, 유저 선호와 가장 먼 장소는 빨간 체크로 깃발 위에 표시됩니다. 
+- **기타 버튼**
+  - 장소/유저 랜덤배치: 장소/유저의 위치를 랜덤으로 설정합니다. 
+  - 방문시간 랜덤생성: 모든 장소의 방문시간 특성값을 랜덤으로 설정합니다.
+  - 방문시간 초기화: 모든 장소의 방문시간 특성값을 0으로 설정합니다. 
+  - 로그 랜덤생성: 유저가 랜덤한 장소 20곳을 방문하게 하여 로그를 생성합니다. 
+    - 움직임 스킵: 로그 랜덤 생성 시 유저의 움직임을 보여주지 않고 바로 생성합니다. 
+  - 로그 초기화: 유저 로그와 발자취를 모두 지웁니다. 
+
 
 <br />
 
 ## Prerequisite
 
-`node` (version: 16.15.1)
-<br />
-`npm`  (version: 8.12.2)
-<br />
-`react 18` (version: 18.2.0)
-<br />
-
-`axios (API 통신)` (version: 0.27.2)
-
-- 기본적으로 fetch가 존재하나 부족한 부분이나 안정성이 결여되어 있어서 채택함.
-
-<br />
-
-`Material-UI` (version: 5.10.0)
-
-- UI library는 mui를 활용하였음.
-- Styled-Components를 포함하고 있으며 emotion도 동시에 활용 가능함.
-- 더불어 css-in-js 기능도 탁월함.
-
+`Unity` (version: 2021.3.6f1)
 <br />
 
 ## Getting Started
 
+
 ### Clone Repository
 
 ```shell script
-$ git clone https://github.com/skku-synapse/frontend.git
-$ cd frontend
+$ git clone https://github.com/skku-woongjin/RecommendAgent_Demo.git
+$ cd RecommendAgent_Demo
 ```
 
 ### How to Run
 
-**Installation:**
-
-- repository 의 package.json 파일로 대체 후 install  
-<br />
-
-```shell script
-$ npm install
-```
-
-**To run in development mode:**
-
-```shell script
-$ npm start
-```
-
-**To run in production mode:**
-
-```shell script
-$ npm run build
-$ sudo serve -l [포트번호] -s build
-```
+Unity Hub에서 프로젝트 경로 추가 후 실행
 
 ## 파일 구조
 
 ```
 .
 ├── README.md
-├── package-lock.json
-├── package.json
-├── public
-│   ├── favicon.ico
-│   ├── index.html
-│   ├── logo.png
-│   ├── logo192.png
-│   ├── logo512.png
-│   ├── manifest.json
-│   └── robots.txt
-└── src
-    ├── App.css
-    ├── App.js
-    ├── App.test.js
-    ├── components
-    │   ├── Analysis.js
-    │   ├── Circlar.js
-    │   ├── Contents.js
-    │   ├── DatasetSelector.js
-    │   ├── Header.js
-    │   ├── Line.js
-    │   ├── ModelSelector.js
-    │   ├── Test.js
-    │   └── Visualization.js
-    ├── index.css
-    ├── index.js
-    ├── reportWebVitals.js
-    ├── setupTests.js
-    └── theme.js
+├── Assets
+│   ├── Demo
+│   │   ├── Materials
+│   │   ├── Models
+│   │   │   ├── Junwon.onnx
+│   │   │   └── getmean_tri.onnx
+│   │   ├── Prefabs
+│   │   │   ├── Dest.prefab
+│   │   │   ├── Slider.prefab
+│   │   │   ├── TrailPoint.prefab
+│   │   │   ├── dot_agent.prefab
+│   │   │   ├── dot_answer.prefab
+│   │   │   ├── dot_userlog.prefab
+│   │   │   └── user.prefab
+│   │   ├── Scripts
+│   │   │   ├── ClickDetector.cs
+│   │   │   ├── Flag.cs
+│   │   │   ├── GameManager.cs
+│   │   │   ├── JunwonAgent.cs
+│   │   │   ├── ModelOverrider.cs
+│   │   │   ├── RecommendAgent.cs
+│   │   │   ├── TrailEnergyDecrease.cs
+│   │   │   ├── TrailGenerator.cs
+│   │   │   └── TrailPoint.cs
+│   │   └── TrainScene
+│   │       └── NavMesh.asset
+│   ├── ML-Agents
+│   │   └── Timers
+│   └── Plugins
+│       ├── Borodar
+│       │   └── RainbowHierachy
+│       └── TextMesh Pro
+├── Packages
+└── ProjectSettings
 ```
 
 <br />
 
-- [App.js](https://github.com/skku-synapse/frontend/blob/main/src/App.js) : root 파일
-- 컴포넌트 파일 : frontend/components/ 하위 파일
+- [Assets/Demo](링크) : Demo Scene 을 구성하는 Asset 모음
+- [Assets/Demo/Materials](링크) : 3D 오브젝트에 씌울 Material 모음
+- [Assets/Demo/Models](링크) : 훈련된 모델 모음
+    - Junwon.onnx: 비교 모델, #visit, duration, distance 가 모두 높은 장소 추천
+    - getmean_tri.onnx: [RecommendAgent_Train]()을 통해 훈련된 모델
+- [Assets/Demo/Scripts](링크) : C# 스크립트 모음
 
 ## Components
 
-- **[ModelSelector.js](https://github.com/skku-synapse/frontend/blob/main/src/components/ModelSelector.js)**
-  - Deep Learning 모델을 선택할 수 있는 컴포넌트
-  - 현재는 CS-Flow 로 고정되어 있음
-
-<br />
-
-- **[DatasetSelector.js](https://github.com/skku-synapse/frontend/blob/main/src/components/DatasetSelector.js)**
-  - Lens, Flex, SMT 데이터 중 하나를 선택하는 컴포넌트
-
-<br />
-
-- **[Line.js](https://github.com/skku-synapse/frontend/blob/main/src/components/Line.js)**
-  - Model evaluation 시작 시 progress bar를 제공하는 컴포넌트
-
-<br />
-
-- **[Test.js](https://github.com/skku-synapse/frontend/blob/main/src/components/Test.js)**
-  - Test 시작, 중지를 컨트롤하는 버튼 컴포넌트
-  - Test가 시작되면 Line 컴포넌트가 작동하여 progress bar 제공
-
-<br />
-
-- **[Visulization.js](https://github.com/skku-synapse/frontend/blob/main/src/components/Visulization.js)**
-  - 모델의 예측 결과와 실제 정상/비정상 여부를 이미지로 제공하는 컴포넌트
-  - image border가 빨간색 : 예측이 잘못 되었음을 표시
-  - 빨간색 채워진 박스 : 실제 비정상
-  - 초록색 채워진 박스 : 실제 정상
-
-<br />
-
-- **[Analysis.js](https://github.com/skku-synapse/frontend/blob/main/src/components/Analysis.js)**
-  - 예측 결과 표, CS-Flow score histogram 이미지를 API로 제공받아 표시하는 컴포넌트
+- **[ClickDetector.cs]()**
+  - 장소 클릭 시 유저가 해당 장소로 이동하도록 함
+  <br />
+- **[Flag.cs]()**
+  - 장소 class 정의
+  <br />
+- **[GameManager.cs]()** 
+  - 장소 특성 저장, 장소 방문 처리
+  - UI 업데이트
+  - 장소 배치, 초기화 등
+  <br />
+- **[JunwonAgent.cs]()** 
+  - Junwon.onnx의 input과 output 처리
+  <br />
+- **[RecommendAgent.cs]()** 
+  - getmean_tri.onnx의 input과 output 처리 
+  <br />
+- **[TrailEnergyDecrease.cs](),[TrailGenerator.cs](),[TrailPoint.cs]()** 
+  - 유저 이동 시 나타나는 발자취 처리 
+  <br />
+    
