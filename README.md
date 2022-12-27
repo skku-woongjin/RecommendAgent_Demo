@@ -4,7 +4,8 @@
 > 모델의 state로 넣어줄 유저 로그를 직접 생성해보고, 로그에 따른 모델의 추천을 확인할 수 있습니다. 
 
 ## 실행 화면
-<img width="678" alt="실행화면" src="https://user-images.githubusercontent.com/60357053/209494711-d4910412-fd6b-4a6d-abe4-81e2f038b46c.png">
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/121273065/209664161-68ab3a76-12b0-4ead-b08c-eadf090f2585.gif)
+
 
 <br />
 
